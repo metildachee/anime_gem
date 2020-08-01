@@ -1,0 +1,44 @@
+img {
+   height: 40vh;
+}
+
+.grid {
+   display: grid;
+   grid-template-columns: repeat(4, 1fr);
+   text-align: center;
+   padding: 0px;
+}
+
+body {
+   background-color: #fef6e4;
+   color: #001858;
+}
+
+nav {
+   background-color: #f3d2c1;
+}
+
+.btn { 
+   background-color: #f582ae; 
+   color: #001858;
+   margin-top: 10px;
+}
+.btn:hover { 
+   background-color: #8bd3dd; 
+   color: #001858;
+}
+
+a { color: #f582ae; }
+a:hover { color: #8bd3dd; }
+
+nav a { 
+   padding: 20px; 
+   color: #001858;
+   font-weight: bold;
+}
+
+select { display: block; }
+
+@media only screen and (max-width: 700px) {
+   .grid { grid-template-columns: repeat(3, 1fr);}
+}

@@ -1,0 +1,24 @@
+<h6>There are <%= @artists.length %> artist(s).</h6>
+
+<%= link_to new_artist_path, class: "btn waves-effect waves-light" do %>
+    <span><i class="fas fa-plus"></i> artist</span>
+<% end %>
+
+<div class="grid">
+    <% @artists.each do |artist| %>
+        <div>
+            <div>
+                <img src="<%= artist.img_path %>">
+            </div>
+            <div>
+                <%= artist.name %>, <%= artist.age %>
+            </div>
+            <%= link_to artist_path(artist) do %>
+                <i class="far fa-eye"></i>
+            <% end %>
+            <%= link_to edit_artist_path(artist) do %>
+                <i class="fas fa-edit"></i>
+            <% end %>
+        </div>
+    <% end %>
+</div>

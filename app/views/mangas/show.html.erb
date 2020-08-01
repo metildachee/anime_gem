@@ -1,0 +1,19 @@
+<h3 style="display: inline-block; 
+            padding-right: 10px; 
+            padding-bottom: 0px; 
+            margin-bottom: 0px; ">
+    <%= @manga.title %>
+</h3>
+    <%= link_to edit_manga_path(@manga) do %>
+        <i class="fas fa-edit"></i>
+    <% end %>
+    <%= link_to manga_path(@manga), method: "delete", data: { confirm: "Are you sure you want to delete?"} do %>
+        <i class="fas fa-trash"></i>
+    <% end %>
+<p>by 
+    <%= link_to artist_path(@manga.artist) do %>
+        <%= @manga.artist.name %>
+    <% end %>
+</p>
+<p><%= @manga.desc %></p>
+<img src="<%= @manga.img_path %>" />

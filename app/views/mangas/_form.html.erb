@@ -1,0 +1,21 @@
+<%= form_for @manga do |f| %>
+    <div>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+    </div>
+    <div>
+        <%= f.label :desc %>
+        <%= f.text_field :desc %>
+    </div>
+    <div>
+    <%= f.label :img_path %>
+        <%= f.text_field :img_path %>
+    </div>
+    <%= f.label :artist, "Please choose artist" %>
+    <select name="artist" id="manga_artist_id">
+        <% @artists.each do |artist| %>
+            <option value="<%= artist.id %>"><%= artist.name %></option>
+        <% end %>
+  </select>
+  <%= f.submit class: "btn waves-effect waves-light"%>
+<% end %>

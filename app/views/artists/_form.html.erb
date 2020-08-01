@@ -1,0 +1,19 @@
+<%= form_for @artist do |f| %>
+    <div>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+    </div>
+    <div>
+        <%= f.label :desc %>
+        <%= f.text_field :desc %>
+    </div>
+    <div>
+        <%= f.label :age %>
+        <%= f.text_field :age %>
+    </div>
+    <div>
+        <%= f.label :img_path, "Image URL" %>
+        <%= f.text_field :img_path %>
+    </div>
+    <%= f.submit class: "btn waves-effect waves-light"%>
+<% end %>

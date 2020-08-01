@@ -1,0 +1,39 @@
+<h3 style="display: inline-block; 
+            padding-right: 10px; 
+            padding-bottom: 0px; 
+            margin-bottom: 0px; ">
+    <%= @artist.name %>, <%= @artist.age %>
+</h3>
+<%= link_to edit_artist_path(@artist) do %>
+    <i class="fas fa-edit"></i>
+<% end %>
+
+<p>
+    <%= @artist.desc %>
+</p>
+
+<h5 style="display: inline-block; 
+            padding-right: 10px; 
+            padding-bottom: 0px;">
+    Works by <%= @artist.name %>
+</h5>
+<% if @artist.mangas.length <= 0 %>
+    <p>There are no works.</p>
+<% end %>
+<div class="grid">
+    <% @artist.mangas.each do |manga| %>
+        <div>
+            <img src="<%= manga.img_path %>" />
+            <h6><%= manga.title %></h6>
+            <%= link_to manga_path(manga) do %>
+                <i class="far fa-eye"></i>
+            <% end %>
+            <%= link_to edit_manga_path(manga) do %>
+                <i class="fas fa-edit"></i>
+            <% end %>
+            <%= link_to manga_path(manga), method: "delete", data: { confirm: "Are you sure you want to delete?"} do %>
+                <i class="fas fa-trash"></i>
+            <% end %>
+        </div>
+    <% end %>
+</div>
