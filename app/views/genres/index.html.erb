@@ -1,0 +1,22 @@
+<%= link_to new_genre_path, class: "btn waves-effect waves-light" do %>
+    <span><i class="fas fa-plus"></i> genre</span>
+<% end %>
+
+<% @genres.each do |genre| %>
+    <div class="row">
+        <%= link_to genre_path(genre) do %>
+            <p class="bdge"><%= genre.name %></p>
+        <% end %>
+        <p><%= genre.desc %></p>
+        <div class="grid">
+        <% genre.manga.each do |manga| %>
+            <div>
+                <img src="<%= manga.img_path %>" >
+                <%= link_to manga_path(manga) do %>
+                    <h6><%= manga.title %></h6>
+                <% end %>
+            </div>
+        <% end %>
+        </div>
+    </div>
+<% end %>
