@@ -24,15 +24,8 @@
     <% @artist.mangas.each do |manga| %>
         <div>
             <img src="<%= manga.img_path %>" />
-            <h6><%= manga.title %></h6>
             <%= link_to manga_path(manga) do %>
-                <i class="far fa-eye"></i>
-            <% end %>
-            <%= link_to edit_manga_path(manga) do %>
-                <i class="fas fa-edit"></i>
-            <% end %>
-            <%= link_to manga_path(manga), method: "delete", data: { confirm: "Are you sure you want to delete?"} do %>
-                <i class="fas fa-trash"></i>
+                <h6><%= manga.title %></h6>
             <% end %>
         </div>
     <% end %>

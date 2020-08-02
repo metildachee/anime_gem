@@ -4,19 +4,20 @@
 
 <% @genres.each do |genre| %>
     <div class="row">
-        <%= link_to genre_path(genre) do %>
-            <p class="bdge"><%= genre.name %></p>
-        <% end %>
-        <p><%= genre.desc %></p>
+        <p>
+            <%= link_to genre_path(genre) do %>
+                <span class="bdge"><%= genre.name %></span>
+            <% end %>
+        </p>
         <div class="grid">
-        <% genre.manga.each do |manga| %>
-            <div>
-                <img src="<%= manga.img_path %>" >
-                <%= link_to manga_path(manga) do %>
-                    <h6><%= manga.title %></h6>
-                <% end %>
-            </div>
-        <% end %>
+            <% genre.manga.each do |manga| %>
+                <div>
+                    <img src="<%= manga.img_path %>" >
+                    <%= link_to manga_path(manga) do %>
+                        <h6><%= manga.title %></h6>
+                    <% end %>
+                </div>
+            <% end %>
         </div>
     </div>
 <% end %>

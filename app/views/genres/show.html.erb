@@ -1,2 +1,35 @@
-<h1>Genres#show</h1>
-<p>Find me in app/views/genres/show.html.erb</p>
+<h3 style="display: inline-block; 
+            padding-right: 10px; 
+            padding-bottom: 0px; 
+            margin-bottom: 0px; ">
+    <%= @genre.name %>
+</h3>
+<%= link_to edit_genre_path(@genre) do %>
+    <i class="fas fa-edit"></i>
+<% end %>
+<%= link_to genre_path(@genre), method: "delete", data: { confirm: "Are you sure you want to delete?"} do %>
+    <i class="fas fa-trash"></i>
+<% end %>
+<p><%= @genre.desc %></p>
+
+<h5 style="display: inline-block; 
+            padding-right: 10px; 
+            padding-bottom: 0px;">
+    Works in <%= @genre.name %>
+</h5>
+<% if @genre.manga.length <= 0 %>
+    <p>There are no works.</p>
+<% end %>
+
+<div class="grid">
+    <% @genre.manga.each do |manga| %>
+            <div>
+                <img src="<%= manga.img_path %>" >
+                <%= link_to manga_path(manga) do %>
+                    <h6><%= manga.title %></h6>
+                <% end %>
+            </div>
+    <% end %>
+</div>
+
+

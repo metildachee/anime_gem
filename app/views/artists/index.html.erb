@@ -10,14 +10,8 @@
             <div>
                 <img src="<%= artist.img_path %>">
             </div>
-            <div>
-                <%= artist.name %>, <%= artist.age %>
-            </div>
             <%= link_to artist_path(artist) do %>
-                <i class="far fa-eye"></i>
-            <% end %>
-            <%= link_to edit_artist_path(artist) do %>
-                <i class="fas fa-edit"></i>
+                <h6><%= artist.name %></h6>
             <% end %>
         </div>
     <% end %>
