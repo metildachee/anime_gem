@@ -15,5 +15,11 @@
         <%= @manga.artist.name %>
     <% end %>
 </p>
+<p>
+<% @manga.genre.each do |genre| %>
+    <span class="bdge"><%= genre.name %></span>
+<% end %>
+</p>
+
 <p><%= @manga.desc %></p>
 <img src="<%= @manga.img_path %>" />

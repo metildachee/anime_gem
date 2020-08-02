@@ -38,6 +38,19 @@ nav a {
 }
 
 select { display: block; }
+.bdge {
+   background-color: #f3d2c1;
+   color: #001858 !important;
+   font-weight: medium;
+   display: inline;
+   padding: 2px 4px;
+}
+
+[type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+   opacity: 1;
+   pointer-events: auto;
+   position: static;
+}
 
 @media only screen and (max-width: 700px) {
    .grid { grid-template-columns: repeat(3, 1fr);}

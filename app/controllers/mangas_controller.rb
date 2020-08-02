@@ -35,14 +35,20 @@ class MangasController < ApplicationController
   def new
     @manga = Manga.new
     @artists = Artist.all
+    @genres = Genre.all
   end
 
   def create
     @manga = Artist.find(params[:artist]).mangas.build(mangas_params)
+    
+    params[:genres].each do |genre_id|
+      @manga.genre << Genre.find(genre_id)
+    end 
+
     if @manga.save
-      redirect_to mangas_path
+        redirect_to mangas_path
     else 
-      render :new 
+        render :new 
     end 
   end 
   
@@ -55,6 +61,6 @@ class MangasController < ApplicationController
   private
 
   def mangas_params
-    params.require(:manga).permit(:title, :desc, :img_path, :artist)
+    params.require(:manga).permit(:title, :desc, :img_path, :artist, :genre_id)
   end 
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_31_080849) do
+ActiveRecord::Schema.define(version: 2020_08_02_060512) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,31 @@ ActiveRecord::Schema.define(version: 2020_07_31_080849) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "genre_mangas", force: :cascade do |t|
+    t.bigint "genre_id", null: false
+    t.bigint "manga_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["genre_id"], name: "index_genre_mangas_on_genre_id"
+    t.index ["manga_id"], name: "index_genre_mangas_on_manga_id"
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "desc"
+  end
+
+  create_table "genres_mangas", force: :cascade do |t|
+    t.bigint "genre_id", null: false
+    t.bigint "manga_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["genre_id"], name: "index_genres_mangas_on_genre_id"
+    t.index ["manga_id"], name: "index_genres_mangas_on_manga_id"
+  end
+
   create_table "mangas", force: :cascade do |t|
     t.string "title"
     t.string "desc"
@@ -34,5 +59,9 @@ ActiveRecord::Schema.define(version: 2020_07_31_080849) do
     t.index ["artist_id"], name: "index_mangas_on_artist_id"
   end
 
+  add_foreign_key "genre_mangas", "genres"
+  add_foreign_key "genre_mangas", "mangas"
+  add_foreign_key "genres_mangas", "genres"
+  add_foreign_key "genres_mangas", "mangas"
   add_foreign_key "mangas", "artists"
 end
