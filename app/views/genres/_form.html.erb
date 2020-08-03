@@ -1,0 +1,20 @@
+<% if @genre.errors.any? %>
+    <%= pluralize(@genre.errors.count, "error") %>
+    <% @genre.errors.full_messages.each do |err| %>
+        <div> 
+            <%= err %>
+        </div>
+    <% end %>
+<% end %>
+
+<%= form_for @genre do |f| %>
+    <div>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+    </div>
+    <div>
+      <%= f.label :desc %>
+      <%= f.text_field :desc %>
+  </div>
+  <%= f.submit class: "btn waves-effect waves-light"%>
+<% end %>
