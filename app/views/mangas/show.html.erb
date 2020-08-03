@@ -22,4 +22,27 @@
 </p>
 
 <p><%= @manga.desc %></p>
+
 <img src="<%= @manga.img_path %>" />
+<table>
+    <thead>
+    <tr>
+        <th>Voice Actor</th>
+        <th>Character</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @manga.characters.each do |character| %>
+      <tr>
+        <td>
+            <%= link_to actor_path(character.actor) do %>
+                <%= character.actor.name %>
+            <% end %>
+        </td>
+        <td><%= character.name %></td>
+      </tr>
+    <% end %>
+    </tbody>
+</table>
+
+

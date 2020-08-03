@@ -11,6 +11,7 @@ class MangasController < ApplicationController
     if params[:artist] == @manga.artist.id && @manga.update(mangas_params)
       return redirect_to mangas_path
     end 
+    
     if params[:artist] != @manga.artist.id
       @manga.destroy
       if Artist.find(params[:artist]).mangas.build(mangas_params).save 
@@ -29,8 +30,11 @@ class MangasController < ApplicationController
 
   def create
     @manga = Manga.new(mangas_params)
+    @manga.artist = Artist.find(params[:artist])
+
     if @manga.save
       Artist.find(params[:artist]).mangas << @manga
+      redirect_to mangas_path
     else
       render :new
     end 
@@ -43,7 +47,7 @@ class MangasController < ApplicationController
   private
 
   def mangas_params
-    params.require(:manga).permit(:title, :desc, :img_path, genre_ids: [])
+    params.require(:manga).permit(:title, :desc, :img_path, :artist, genre_ids: [])
   end 
 
   def set_manga

@@ -10,6 +10,8 @@
   #           img_path: "https://upload.wikimedia.org/wikipedia/en/e/e5/Tokyo_Ghoul_volume_1_cover.jpg",
   #           genre: "Psychological Thriller")
 
-Genre.create(name: "Shounen", desc: "Shōnen, shonen, or shounen manga (少年漫画, shōnen manga) is manga aimed at a young teen male target-demographic. ... The kanji characters (少年) literally mean 'boy' or 'youth', and the characters (漫画) means 'comic'.")
-Genre.create(name: "Psychological", desc: "Psychological anime could be thrillers, mysterious and has allot of mental questioning in the likes. They focus heavily on developing the story around one (usually one) centralvplot device of a villain or person whose thinking differs from the norm.")
-Genre.create(name: "Slice of Life", desc: "Robin E. Brenner's 2007 book 'Understanding manga and anime' holds that in anime and manga, 'slice of life' is a genre that is more akin to melodrama than drama, bordering on absurd due to the large numbers of dramatic and comedic events in very short spans.")
+# Genre.create(name: "Shounen", desc: "Shōnen, shonen, or shounen manga (少年漫画, shōnen manga) is manga aimed at a young teen male target-demographic. ... The kanji characters (少年) literally mean 'boy' or 'youth', and the characters (漫画) means 'comic'.")
+# Genre.create(name: "Psychological", desc: "Psychological anime could be thrillers, mysterious and has allot of mental questioning in the likes. They focus heavily on developing the story around one (usually one) centralvplot device of a villain or person whose thinking differs from the norm.")
+# Genre.create(name: "Slice of Life", desc: "Robin E. Brenner's 2007 book 'Understanding manga and anime' holds that in anime and manga, 'slice of life' is a genre that is more akin to melodrama than drama, bordering on absurd due to the large numbers of dramatic and comedic events in very short spans.")
+
+Actor.create(name: "Hiroshi Kamiya", desc: "Hiroshi Kamiya (神谷 浩史, Kamiya Hiroshi, born January 28, 1975) is a Japanese voice actor, singer and narrator affiliated with Aoni Production.", age: "45", img_url: "https://aramajapan.com/wp-content/uploads/2016/07/aramajapan_a065876de17d0778fb8a65f467ba5491.jpg")
