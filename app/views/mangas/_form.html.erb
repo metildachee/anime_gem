@@ -1,3 +1,12 @@
+<% if @manga.errors.any? %>
+    <%= pluralize(@manga.errors.count, "error") %>
+    <% @manga.errors.full_messages.each do |err| %>
+        <div > 
+            <%= err %>
+        </div>
+    <% end %>
+<% end %>
+
 <%= form_for @manga do |f| %>
     <div>
         <%= f.label :title %>
@@ -19,14 +28,8 @@
     </select>
 
     <%= f.label "Please select genres" %>
-    <p>
-        <% @genres.each do |genre| %>
-            <span>
-                <label for="<%= genre.id %>"><%= genre.name %></label>  
-                <%= check_box_tag "genres[]", genre.id %>
-            </span>
-        <% end %>
-    </p>
-
-  <%= f.submit class: "btn waves-effect waves-light"%>
+    <div>
+        <%= collection_check_boxes(:manga, :genre_ids, Genre.all, :id, :name) %>
+    </div>
+    <%= f.submit class: "btn waves-effect waves-light"%>
 <% end %>

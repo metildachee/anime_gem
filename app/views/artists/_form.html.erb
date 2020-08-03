@@ -1,3 +1,12 @@
+<% if @artist.errors.any? %>
+    <%= pluralize(@artist.errors.count, "error") %>
+    <% @artist.errors.full_messages.each do |err| %>
+        <div > 
+            <%= err %>
+        </div>
+    <% end %>
+<% end %>
+
 <%= form_for @artist do |f| %>
     <div>
         <%= f.label :name %>
@@ -15,5 +24,5 @@
         <%= f.label :img_path, "Image URL" %>
         <%= f.text_field :img_path %>
     </div>
-    <%= f.submit class: "btn waves-effect waves-light"%>
+    <%= f.submit class: "btn waves-effect waves-light", id: "submit-btn" %>
 <% end %>

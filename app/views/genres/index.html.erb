@@ -10,7 +10,7 @@
             <% end %>
         </p>
         <div class="grid">
-            <% genre.manga.each do |manga| %>
+            <% genre.mangas.each do |manga| %>
                 <div>
                     <img src="<%= manga.img_path %>" >
                     <%= link_to manga_path(manga) do %>

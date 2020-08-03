@@ -17,12 +17,12 @@
             padding-bottom: 0px;">
     Works in <%= @genre.name %>
 </h5>
-<% if @genre.manga.length <= 0 %>
+<% if @genre.mangas.length <= 0 %>
     <p>There are no works.</p>
 <% end %>
 
 <div class="grid">
-    <% @genre.manga.each do |manga| %>
+    <% @genre.mangas.each do |manga| %>
             <div>
                 <img src="<%= manga.img_path %>" >
                 <%= link_to manga_path(manga) do %>

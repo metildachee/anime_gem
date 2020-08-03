@@ -1,4 +1,7 @@
 class GenresController < ApplicationController
+
+  before_action :new_genre, only: [:new, :create]
+
   def index
     @genres = Genre.all
   end
@@ -8,7 +11,6 @@ class GenresController < ApplicationController
   end
 
   def new
-    @genre = Genre.new
   end
 
   def create
@@ -38,4 +40,8 @@ class GenresController < ApplicationController
   def genre_param
     params.require(:genre).permit(:name, :desc)
   end 
+
+  def new_genre 
+    @genre = Genre.new
+  end
 end

@@ -1,3 +1,5 @@
 class Genre < ApplicationRecord
-    has_and_belongs_to_many :manga
+    validates :name, presence: true
+
+    has_and_belongs_to_many :mangas
 end
